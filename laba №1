@@ -1,0 +1,169 @@
+//Завдання №1
+Console.Write("Напишіть перше ціле число:");
+if (int.TryParse(Console.ReadLine(), out int n1))
+{
+    Console.Write("Напишіть друге ціле число:");
+    if (int.TryParse(Console.ReadLine(), out int n2))
+    {
+        bool DayFunction = n1 >= 1 && n1 <= 31;
+        bool MonthFunction = n2 >= 1 && n2 <= 12;
+
+        if (DayFunction && MonthFunction)
+        {
+            Console.WriteLine($"І число {n1} і число {n2} можуть бути днем і місяцем.");
+        }
+        else
+        {
+            Console.WriteLine($"Як і число {n1}, так і число {n2} не можуть бути днем і місяцем.");
+        }
+    }
+    else
+    {
+        Console.WriteLine("Перше число не ціле.");
+    }
+}
+else
+{
+    Console.WriteLine("Друге число не ціле.");
+}
+
+//Завдання №2
+Console.Write("Напишіть одне дiйсне число з двома цифрами після коми: ");
+if (double.TryParse(Console.ReadLine(), out double n))
+{
+    int NumbersBefComma = (int)n;
+    double NumbersAfComma = n - NumbersBefComma;
+    int Figure1AfComma = (int)(NumbersAfComma * 10);
+    NumbersAfComma -= (double)Figure1AfComma / 10;
+    int Figure2AfComma = (int)(NumbersAfComma * 100);
+
+    int sum = Figure1AfComma + Figure2AfComma;
+
+    Console.WriteLine($" цифра №1 після коми = {Figure1AfComma}");
+    Console.WriteLine($" цифра №2 після коми = {Figure2AfComma}");
+    Console.WriteLine($" цифра №1 + цифра №2 = {sum}");
+}
+else
+{
+    Console.WriteLine("Ви написали хибне число!");
+}
+
+//Завдання №3
+Console.Write("Напишіть число від 1 до 24 - ");
+if (int.TryParse(Console.ReadLine(), out int hour))
+{
+    if (hour >= 0 && hour < 24)
+    {
+        string answer;
+
+        if (hour >= 6 && hour <= 12)
+        {
+            answer = "Доброго ранку!";
+        }
+        else if (hour > 12 && hour < 18)
+        {
+            answer = "Добрий день!";
+        }
+        else if (hour >= 18 && hour < 23)
+        {
+            answer = "Добрий вечiр!";
+        }
+        else
+        {
+            answer = "Доброї ночi!";
+        }
+
+        Console.WriteLine(answer);
+    }
+    else
+    {
+        Console.WriteLine("такої години немає");
+    }
+}
+else
+{
+    Console.WriteLine("Число написано неправильно");
+}
+
+//Завдання №4
+Console.Write("Напишіть ціле число №1 - ");
+if (int.TryParse(Console.ReadLine(), out int n1))
+{
+    Console.Write("Напишіть ще одне ціле число №2 - ");
+    if (int.TryParse(Console.ReadLine(), out int n2))
+    {
+        Console.Write("І ще одне ціле число №3 - ");
+        if (int.TryParse(Console.ReadLine(), out int n3))
+        {
+            int maximum = Math.Max(Math.Max(n1, n2), n3);
+
+            int minimum = Math.Min(Math.Min(n1, n2), n3);
+
+            Console.WriteLine($"Максимальне число з усіх - {maximum}");
+            Console.WriteLine($"Мiнiмальне число з усіх - {minimum}");
+        }
+        else
+        {
+            Console.WriteLine("Число №3 не ціле");
+        }
+    }
+    else
+    {
+        Console.WriteLine("Число №2 не ціле");
+    }
+}
+else
+{
+    Console.WriteLine("Число №3 не ціле");
+}
+
+//Завдання №5
+Console.Write("Напишіть дійсне число (ширина прямокутника) - ");
+if (double.TryParse(Console.ReadLine(), out double width))
+{
+    Console.Write("Напишіть дійсне число (довжина прямокутника) ");
+    if (double.TryParse(Console.ReadLine(), out double length))
+    {
+        double areaUpright = width * length;
+
+        Console.WriteLine($"Тоді площа прямокутника = {areaUpright}");
+    }
+    else
+    {
+        Console.WriteLine("Це число довжини неправильне.");
+    }
+}
+else
+{
+    Console.WriteLine("Це число ширини неправильне.");
+}
+
+//Завдання №6
+Console.Write("Напишіть цiле число: ");
+if (int.TryParse(Console.ReadLine(), out int n))
+{
+    if (n % 2 == 0)
+    {
+        Console.WriteLine($" Число {n} - парне");
+    }
+    else
+    {
+        Console.WriteLine($"Число {n} - непарне");
+    }
+}
+else
+{
+    Console.WriteLine("Дане число - дробове");
+}
+
+//Завдання №7
+Console.Write("Напишіть температуру в градусах Цельсія - ");
+if (double.TryParse(Console.ReadLine(), out double temperatureC))
+{
+    double temperatureF = ((9 / 5 * temperatureC) + 32);
+    Console.WriteLine($"Якщо температура в градусах Цельсія = {temperatureC}, тоді температура в градусах Фаренгейта = {temperatureF}");
+}
+else
+{
+    Console.WriteLine("Ви написали неправильне число!");
+}
